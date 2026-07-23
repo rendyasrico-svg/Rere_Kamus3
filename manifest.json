@@ -1,0 +1,38 @@
+{
+    "name": "Rere Kamus",
+    "short_name": "Rere Kamus",
+    "description": "Kamus Inggris - Indonesia offline oleh Rere Studio",
+    "start_url": "./index.html",
+    "scope": "./",
+    "display": "standalone",
+    "orientation": "portrait",
+    "background_color": "#0a0f2c",
+    "theme_color": "#764ba2",
+    "lang": "id",
+    "icons": [
+        {
+            "src": "logo1.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "logo1.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "logo1.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "maskable"
+        },
+        {
+            "src": "logo1.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable"
+        }
+    ]
+}

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Rere Kamus</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="logo1.png">
+
+    <!-- ===================== PWA ===================== -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#764ba2">
+    <link rel="apple-touch-icon" href="logo1.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Rere Kamus">
+</head>
+<body>
+    <!-- ===================== SPLASH SCREEN ===================== -->
+    <div id="splashScreen" class="splash-screen">
+        <img src="logo_screen1.png" alt="Rere Kamus" class="splash-logo">
+        <div class="splash-loading-bar">
+            <div class="splash-loading-fill"></div>
+        </div>
+    </div>
+
+    <div class="app-wrapper">
+        <header class="app-header">
+            <button id="menuBtn" class="menu-btn" aria-label="Buka menu">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
+
+            <img src="logo1.png" alt="Logo Rere Kamus" class="app-logo" onerror="this.style.display='none'">
+            <h1>Rere Kamus</h1>
+            <p class="subtitle">Inggris ⇄ Indonesia</p>
+        </header>
+
+        <!-- ===================== SIDE MENU ===================== -->
+        <div id="menuOverlay" class="menu-overlay"></div>
+        <nav id="sideMenu" class="side-menu">
+            <div class="side-menu-header">
+                <img src="logo1.png" alt="Logo" class="side-menu-logo" onerror="this.style.display='none'">
+                <span class="side-menu-title">Rere Kamus</span>
+                <button id="closeMenuBtn" class="close-menu-btn" aria-label="Tutup menu">
+                    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+
+            <ul class="side-menu-list">
+                <li class="side-menu-item theme-item">
+                    <span class="side-menu-icon">
+                        <svg id="themeIconSun" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="4"></circle>
+                            <line x1="12" y1="2" x2="12" y2="4"></line>
+                            <line x1="12" y1="20" x2="12" y2="22"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="2" y1="12" x2="4" y2="12"></line>
+                            <line x1="20" y1="12" x2="22" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                        <svg id="themeIconMoon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                    </span>
+                    <span class="side-menu-label">Mode Gelap</span>
+                    <button id="themeToggle" class="theme-switch" role="switch" aria-checked="false" aria-label="Ganti mode gelap/terang">
+                        <span class="theme-switch-knob"></span>
+                    </button>
+                </li>
+
+                <li class="side-menu-divider"></li>
+
+                <li class="side-menu-item" id="menuAbout">
+                    <span class="side-menu-icon">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="12" y1="16" x2="12" y2="12"></line>
+                            <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                        </svg>
+                    </span>
+                    <span class="side-menu-label">Tentang Aplikasi</span>
+                </li>
+
+                <li class="side-menu-item" id="menuShare">
+                    <span class="side-menu-icon">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="18" cy="5" r="3"></circle>
+                            <circle cx="6" cy="12" r="3"></circle>
+                            <circle cx="18" cy="19" r="3"></circle>
+                            <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                            <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+                        </svg>
+                    </span>
+                    <span class="side-menu-label">Bagikan Aplikasi</span>
+                </li>
+            </ul>
+
+            <div class="side-menu-footer">
+                <p>Rere Kamus &copy; 2026</p>
+                <p class="side-menu-footer-brand">by Rere Studio</p>
+            </div>
+        </nav>
+
+        <!-- ===================== MODAL TENTANG APLIKASI ===================== -->
+        <div id="aboutOverlay" class="about-overlay"></div>
+        <div id="aboutModal" class="about-modal" role="dialog" aria-modal="true" aria-labelledby="aboutModalTitle">
+            <div class="about-modal-header">
+                <img src="logo.png" alt="Logo Rere Kamus" class="about-modal-logo" onerror="this.style.display='none'">
+                <button id="closeAboutBtn" class="close-menu-btn about-modal-close" aria-label="Tutup">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+            <div class="about-modal-body">
+                <h2 id="aboutModalTitle" class="about-modal-title">Rere Kamus</h2>
+                <p class="about-modal-subtitle">Kamus Inggris ⇄ Indonesia offline</p>
+
+                <div class="about-modal-divider"></div>
+
+                <div class="about-modal-row">
+                    <span class="about-modal-label">Dibuat oleh</span>
+                    <span class="about-modal-value">Rere Studio</span>
+                </div>
+                <div class="about-modal-row">
+                    <span class="about-modal-label">Dimiliki oleh</span>
+                    <span class="about-modal-value">Rendi Asriko</span>
+                </div>
+                <div class="about-modal-row">
+                    <span class="about-modal-label">Versi</span>
+                    <span class="about-modal-value">1.0.0</span>
+                </div>
+            </div>
+            <div class="about-modal-footer">
+                <p>&copy; 2026 Rere Kamus</p>
+            </div>
+        </div>
+
+        <main class="app-main">
+            <section class="search-section">
+                <div class="input-group">
+                    <input type="text" id="searchInput" placeholder="Cari kata ( Inggris / Indonesia )" autocomplete="off" spellcheck="false">
+                    <button id="searchBtn">Cari</button>
+                </div>
+            </section>
+
+            <div id="welcomeMessage" class="status-message">
+                <p>Masukkan kata dalam bahasa Inggris atau Indonesia.</p>
+            </div>
+
+            <section id="resultContainer" class="result-card hidden"></section>
+
+            <div id="notFound" class="status-message error hidden">
+                <p>Kata tidak ditemukan dalam database.</p>
+            </div>
+        </main>
+
+        <footer class="app-footer">
+            <p>&copy; 2026 Rere Kamus App</p>
+        </footer>
+    </div>
+
+        <!-- Urutan wajib: data.js dulu, baru script.js -->
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+
+    <!-- ===================== REGISTER SERVICE WORKER (PWA) ===================== -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js')
+                    .then((reg) => console.log('Service worker aktif:', reg.scope))
+                    .catch((err) => console.warn('Gagal daftar service worker:', err));
+            });
+        }
+    </script>
+</body>
+</html>
